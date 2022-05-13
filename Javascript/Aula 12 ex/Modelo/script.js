@@ -1,0 +1,3 @@
+function igual() {
+  alert('funcionou')
+}
