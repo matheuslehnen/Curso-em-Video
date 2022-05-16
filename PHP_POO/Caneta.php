@@ -7,12 +7,13 @@ class Caneta {
     protected $carga;
     protected $tampada;
 
+
     //Metodo Construtor
-    /*
+
     public function __construct(){
         $this->cor = "Azul";
         $this->tampar();
-    }*/
+    }
     //O próximo exemplo é o metodo construtor com passagem de parâmetros.
     public function __construct($m, $c, $p){
         $this->modelo = $m;
