@@ -64,14 +64,14 @@ class Conta
         } else if ($this->getSaldo() < 0){
             echo "<p>Conta em débito. Impossível encerrar</p>";
         } else {
-            $this->getStatus(false);
+            $this->getStatus();
             echo "<p>Conta de " . $this->getDono() . " fechada com sucesso </p>";
         }
     }
 
     public function depositar($s){
         if($this->getStatus(true)){
-            $this->setSaldo($this->getSaldo()+$s);
+            $this->setSaldo($this->getSaldo()+$s); // a = a + s;
             echo "<p>Deposito de R$ $s autorizado na conta de " . $this->getDono() . "</p>";
         } else {
             echo "<p>A conta está encerrada.</p>";
