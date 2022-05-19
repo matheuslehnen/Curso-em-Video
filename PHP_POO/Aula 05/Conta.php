@@ -64,7 +64,7 @@ class Conta
         } else if ($this->getSaldo() < 0){
             echo "<p>Conta em débito. Impossível encerrar</p>";
         } else {
-            $this->getStatus();
+            $this->getStatus(false);
             echo "<p>Conta de " . $this->getDono() . " fechada com sucesso </p>";
         }
     }
