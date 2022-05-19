@@ -1,9 +1,9 @@
 <?php
     require_once 'Lutador.php';
+
 class Luta {
     private $desafiado;
     private $desafiante;
-    private $rounds;
     private $aprovada;
 
     public function getDesafiado(){
