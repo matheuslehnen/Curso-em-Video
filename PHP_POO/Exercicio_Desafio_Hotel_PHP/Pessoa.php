@@ -1,7 +1,9 @@
 <?php
 
-class Cliente
+
+class Pessoa
 {
+    private $id;
     private $nome;
     private $cpf;
     private $nascimento;
@@ -10,9 +12,13 @@ class Cliente
     private $cidade;
     private $UF;
     private $fumante;
+    private $diasHospedado;
+    private $totalPagar;
 
-    function __construct($nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante)
+
+    function __construct($id, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante)
     {
+        $this->id = $id;
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->nascimento = $nascimento;
@@ -20,7 +26,28 @@ class Cliente
         $this->telefone = $telefone;
         $this->cidade = $cidade;
         $this->UF = $UF;
-        $this->fumante = $fumante;
+        if ($fumante) {
+            $this->fumante = 'Fumante';
+        } else {
+            $this->fumante = 'Nao-fumante';
+        }
+
+    }
+
+
+
+    //Métodos Getters and Setters da Classe Pessoa
+
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
 
@@ -41,7 +68,7 @@ class Cliente
 
     public function setCpf($cpf)
     {
-        $this->nome = $cpf;
+        $this->cpf = $cpf;
     }
 
     public function getNascimento()
@@ -103,18 +130,32 @@ class Cliente
     {
         $this->fumante = $fumante;
     }
-    public function verificarQuartoDisponivel(){
 
-    }
 
-    public function fazerCheckIn()
+    public function getDiasHospedado()
     {
-
+        return $this->diasHospedado;
     }
 
-    public function fazerCheckOut()
+
+    public function setDiasHospedado($diasHospedado): void
     {
-
+        $this->diasHospedado = $diasHospedado;
     }
+
+
+    public function getTotalPagar()
+    {
+        return $this->totalPagar;
+    }
+
+
+    public function setTotalPagar($totalPagar): void
+    {
+        $this->totalPagar = $totalPagar;
+    }
+
+
+
 }
 
