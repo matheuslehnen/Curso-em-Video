@@ -21,18 +21,18 @@
         <form action="index.php" method="post" id="form">
             <fieldset id="formFora">
                 <legend>Cadastro de Cliente</legend>
-                <label for="fNome">Nome: </label><input type="text" name="fNome" class="inputsFormulario"><br>
-                <label for="fCPF">CPF: </label><input type="text" name="fCPF" class="inputsFormulario"><br>
-                <label for="fNascimento">Nascimento: </label><input type="text" name="fNascimento" class="inputsFormulario"><br>
-                <label for="fEmail">Email: </label><input type="text" name="fEmail" class="inputsFormulario"><br>
-                <label for="fTelefone">Telefone</label><input type="text" name="fTelefone" class="inputsFormulario"><br>
-                <label for="fCidade">Cidade: </label><input type="text" name="fCidade" class="inputsFormulario"><br>
-                <label for="fUF">UF: </label><input type="text" name="fUF" class="inputsFormulario"><br>
+                <label for="fNome">Nome: <input type="text" name="fNome" class="inputsFormulario"></label><br>
+                <label for="fCPF">CPF: <input type="text" name="fCPF" class="inputsFormulario"></label><br>
+                <label for="fNascimento">Nascimento: <input type="text" name="fNascimento" class="inputsFormulario"></label><br>
+                <label for="fEmail">Email: <input type="text" name="fEmail" class="inputsFormulario"></label><br>
+                <label for="fTelefone">Telefone<input type="text" name="fTelefone" class="inputsFormulario"></label><br>
+                <label for="fCidade">Cidade: <input type="text" name="fCidade" class="inputsFormulario"></label><br>
+                <label for="fUF">UF: <input type="text" name="fUF" class="inputsFormulario"></label><br>
 
                 <fieldset>
                     <legend>Fumante:</legend>
-                    <label for="fFuma">Sim</label><input type="radio" id="fumante" name="fFuma"><br>
-                    <label for="fFuma">Não</label><input type="radio" id="Não-fumante" name="fFuma">
+                    <label for="fFuma">Sim<input type="radio" id="fumante" name="fFuma"></label><br>
+                    <label for="fFuma">Não<input type="radio" id="Não-fumante" name="fFuma"></label>
                 </fieldset>
                 <input class="botoes" type="submit">
 
@@ -45,33 +45,32 @@
     <?php
     require_once 'Pessoa.php';
     require_once 'Hotel.php';
-    require_once 'Recepcao.php';
+    require_once 'Recepcionista.php';
 
 
-    $recepcao = new Recepcao(); //Apenas uma vez cria-se o objeto recepcao para poder utilizar todas as funcoes desta classe.
+    $recepcionista = new Recepcionista(); //Apenas uma vez cria-se o objeto recepcao para poder utilizar todas as funcoes desta classe.
 
 
-    $recepcao->cadastraCliente($_POST["fNome"], $_POST["fCPF"], $_POST["fNascimento"], $_POST["fEmail"], $_POST["fTelefone"], $_POST["fCidade"], $_POST["fUF"], $_POST["fFuma"]);
-    //$recepcao->cadastraCliente('Miguelina', '697.360.290-85', '31/07/1916', 'miguelina@hotmail.com', '9999-9999', 'Porto Alegre', 'RS', false);
-    //$recepcao->cadastraCliente('Joesley', '720.588.140-45', '31/07/1994', 'Joesley@hotmail', '9999-9999', 'Porto Alegre', 'RS', false);
+    //$recepcionista->cadastraCliente($_POST["fNome"], $_POST["fCPF"], $_POST["fNascimento"], $_POST["fEmail"], $_POST["fTelefone"], $_POST["fCidade"], $_POST["fUF"], $_POST["fFuma"]);
+    $recepcionista->cadastraCliente('Miguelina', '697.360.290-85', '31/07/1916', 'miguelina@hotmail.com', '9999-9999', 'Porto Alegre', 'RS', false);
+    $recepcionista->cadastraCliente('Joesley', '720.588.140-45', '31/07/1994', 'Joesley@hotmail', '9999-9999', 'Porto Alegre', 'RS', false);
 
-    //$recepcao->cadastraQuarto('Norte', true, 150, 3, false);
-    //$recepcao->cadastraQuarto('Sul', false, 520, 5, false);
-    //$recepcao->cadastraQuarto('Sul', false, 250, 5, false);
-
-    //$recepcao->editaCliente(2,'Jocelina','99999999999','25/10/1950','jocelina@hotmail.com','(51)4006-8888','Porto Alegre','RS',false,'30');
-    //$recepcao->listaClientes();
-    //$recepcao->listaCliente(1);
-    //$recepcao->fazerCheckIn(1, 1, 5);
-    //$recepcao->listaQuartosOcupados();
-    //$recepcao->listaQuartosOcupados();
-    //$recepcao->fazerCheckOut(1, 1);
-    //$recepcao->listaQuartosDisponiveis();
-    //$recepcao->fazerCheckOut(2);
-    //$recepcao->listacliente(2);
-    //$recepcao->listaQuartos();
-    //$recepcao->verificarQuartoDisponivel();
-
+    //$recepcionista->cadastraQuarto('Norte', true, 150, 3, false);
+    //$recepcionista->cadastraQuarto('Sul', false, 520, 5, false);
+    //$recepcionista->cadastraQuarto('Sul', false, 250, 5, false);
+    //$recepcionista->listaQuartos();
+    //$recepcionista->editaCliente(2,'Jocelina','99999999999','25/10/1950','jocelina@hotmail.com','(51)4006-8888','Porto Alegre','RS',false,'30');
+    $recepcionista->listaClientes();
+    //$recepcionista->listaCliente(1);
+    //$recepcionista->fazerCheckIn(1, 1, 5);
+    //$recepcionista->listaQuartosOcupados();
+    //$recepcionista->listaQuartosOcupados();
+    //$recepcionista->fazerCheckOut(1, 1);
+    //$recepcionista->listaQuartosDisponiveis();
+    //$recepcionista->fazerCheckOut(2);
+    //$recepcionista->listacliente(2);
+    //$recepcionista->listaQuartos();
+    //$recepcionista->verificarQuartoDisponivel();
 
 
     ?>

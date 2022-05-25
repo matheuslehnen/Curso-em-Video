@@ -15,8 +15,8 @@
 
     $p = array();
     $l = array();
-    $p[0] = new Pessoa('John', 31, 'M');
-    $p[1] = new Pessoa('Maria', 23, 'F' );
+    $p[0] = new PessoaAula10('John', 31, 'M');
+    $p[1] = new PessoaAula10('Maria', 23, 'F' );
 
     $l[0] = new Livro('O Queijo e os Vermes', 'Carlo Ginzburg', 256, $p[0]);
     $l[1] = new Livro('POO com PHP', 'Maria de Souza', 500, $p[0]);

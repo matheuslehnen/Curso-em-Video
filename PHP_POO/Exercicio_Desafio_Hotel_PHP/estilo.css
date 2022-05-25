@@ -6,7 +6,7 @@ body{
     background-color: rgba(213, 234, 246, 0.94);
     width: 600px;
     height: 650px;
-    margin: 0px auto 0px 100px;
+    margin: 0 auto 0 100px;
     border-radius: 15px;
     box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);
     position: relative;
@@ -16,7 +16,7 @@ body{
 h1{
     text-align: center;
     width: 500px;
-    heigth: 5px;
+    height: 5px;
     margin-left: 55px;
 }
 fieldset{
@@ -33,7 +33,7 @@ fieldset{
 }
 legend{
     font-weight: bolder;
-    font-size: 15 px;
+    font-size: 15px;
 }
 fieldset#formFora{
     margin-top: 80px;
@@ -48,7 +48,7 @@ fieldset#formFora{
     border-radius: 5px;
 }
 .botoes{
-    margin: 35px auto 0px auto;
+    margin: 35px auto 0 auto;
     padding: 15px;
     border-radius: 15px;
     background-color: rgba(23, 21, 89, 0.54);
@@ -58,7 +58,7 @@ div#areaResposta{
     background-color: rgba(213, 234, 246, 0.94);
     width: 500px;
     height: 650px;
-    margin: 0px auto 0px 650px;
+    margin: 0 auto 0 650px;
     border-radius: 15px;
     box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);
     position: absolute;

@@ -1,47 +1,24 @@
 <?php
-require_once 'Pessoa.php';
-require_once 'Recepcao.php';
 
-class Hotel
+require_once 'Recepcionista.php';
+
+abstract class Hotel
 {
-    private $IDQuarto;
+
     private $localizacao;
-    private $fumante;
-    private $valorDiaria;
-    private $pax;
-    private $situacao;
-    private $ocupadoPor;
+    private $capacidade;
 
+  // ---------------------------------   Construct da Classe Hotel -----------------------------------------------//
 
-    public function __construct($IDQuarto, $localizacao, $fumante, $valorDiaria, $pax, $situacao)
+    public function __construct($localizacao, $capacidade)
     {
-        $this->IDQuarto = $IDQuarto;
+
         $this->localizacao = $localizacao;
-        if($fumante){
-            $this->fumante = 'Permitido';
-        } else {
-            $this->fumante = 'Proibido';
-        }
-        $this->valorDiaria = $valorDiaria;
-        $this->pax = $pax;
-        if($situacao){
-            $this->situacao = 'Ocupado';
-        } else {
-            $this->situacao = 'Vago';
-        }
+        $this->capacidade = $capacidade;
     }
 
 
-    public function getIDQuarto()
-    {
-        return $this->IDQuarto;
-    }
-
-
-    public function setIDQuarto($IDQuarto): void
-    {
-        $this->IDQuarto = $IDQuarto;
-    }
+  // ------------------------   Métodos Getters and Setters da Classe Hotel --------------------------------------//
 
 
 
@@ -57,64 +34,15 @@ class Hotel
     }
 
 
-    public function getFumante()
+    public function getCapacidade()
     {
-        return $this->fumante;
+        return $this->capacidade;
     }
 
 
-    public function setFumante($fumante)
+    public function setCapacidade($capacidade)
     {
-        $this->fumante = $fumante;
-    }
-
-
-    public function getValorDiaria()
-    {
-        return $this->valorDiaria;
-    }
-
-
-    public function setValorDiaria($valorDiaria)
-    {
-        $this->valorDiaria = $valorDiaria;
-    }
-
-
-    public function getPax()
-    {
-        return $this->pax;
-    }
-
-
-    public function setPax($pax)
-    {
-        $this->pax = $pax;
-    }
-
-
-    public function getSituacao()
-    {
-        return $this->situacao;
-    }
-
-
-    public function setSituacao($situacao)
-    {
-        $this->situacao = $situacao;
-    }
-
-
-
-    public function getOcupadoPor()
-    {
-        return $this->ocupadoPor;
-    }
-
-
-    public function setOcupadoPor($ocupadoPor)
-    {
-        $this->ocupadoPor = $ocupadoPor;
+        $this->capacidade = $capacidade;
     }
 
 }

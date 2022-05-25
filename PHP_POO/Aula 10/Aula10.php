@@ -11,12 +11,12 @@
 <pre>
     <?php
     require_once 'Funcionario.php';
-    require_once 'Pessoa.php';
+    require_once 'PessoaAula10.php';
     require_once 'Professor.php';
     require_once 'Aluno.php';
 
     $p = array();
-    $p[1] = new Pessoa();
+    $p[1] = new PessoaAula10();
     $p[2] = new Aluno();
     $p[3] = new Professor();
     $p[4] = new Funcionario();

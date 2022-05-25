@@ -1,9 +1,9 @@
 <?php
 
 
-class Pessoa
+abstract class Pessoa
 {
-    private $id;
+
     private $nome;
     private $cpf;
     private $nascimento;
@@ -12,13 +12,11 @@ class Pessoa
     private $cidade;
     private $UF;
     private $fumante;
-    private $diasHospedado;
-    private $totalPagar;
 
 
-    function __construct($id, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante)
+    function __construct($nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante)
     {
-        $this->id = $id;
+
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->nascimento = $nascimento;
@@ -31,24 +29,10 @@ class Pessoa
         } else {
             $this->fumante = 'Nao-fumante';
         }
-
     }
 
 
-
-    //Métodos Getters and Setters da Classe Pessoa
-
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
+  //-------------------------------- Métodos Getters and Setters da Classe PessoaAula10 --------------------------------//
 
 
     public function getNome()
@@ -130,32 +114,6 @@ class Pessoa
     {
         $this->fumante = $fumante;
     }
-
-
-    public function getDiasHospedado()
-    {
-        return $this->diasHospedado;
-    }
-
-
-    public function setDiasHospedado($diasHospedado): void
-    {
-        $this->diasHospedado = $diasHospedado;
-    }
-
-
-    public function getTotalPagar()
-    {
-        return $this->totalPagar;
-    }
-
-
-    public function setTotalPagar($totalPagar): void
-    {
-        $this->totalPagar = $totalPagar;
-    }
-
-
 
 }
 
