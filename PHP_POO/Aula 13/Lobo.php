@@ -1,13 +1,11 @@
 <?php
 
 require_once 'Mamifero.php';
-class Cachorro extends Mamifero
-{
 
+class Lobo extends Mamifero
+{
     public function emitirSom()
     {
-
-        echo "<p>Au!Au!Au!</p>";
+        echo "<p>Auuuuuuuuuuuuuuuuuuu...</p>";
     }
-
 }

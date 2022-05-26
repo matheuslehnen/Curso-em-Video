@@ -2,7 +2,7 @@
 
 require_once 'Pessoa.php';
 
-class Cliente extends Pessoa
+class Cliente extends PessoaAula15
 {
     private $id;
     private $diasHospedado;
