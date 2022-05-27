@@ -45,34 +45,34 @@ class Recepcionista implements Recepcao
     public function listaClientes()
     {
         foreach ($this->cliente as $valor) {
-            echo "<p>id: " . $valor->getId() . "</p>";
-            echo "<p>Nome: " . $valor->getNome() . "</p>";
-            echo "<p>Cpf: " . $valor->getCpf() . "</p>";
-            echo "<p>Nascimento: " . $valor->getNascimento() . "</p>";
-            echo "<p>Email: " . $valor->getEmail() . "</p>";
-            echo "<p>Telefone: " . $valor->getTelefone() . "</p>";
-            echo "<p>Cidade: " . $valor->getCidade() . "</p>";
-            echo "<p>UF: " . $valor->getUF() . "</p>";
-            echo "<p>Fumante: " . $valor->getFumante() . "</p>";
-            echo "<p>Dias Hospedagem: " . $valor->getDiasHospedado() . "</p>";
-            echo "<p>Total a pagar: R$ " . $valor->getTotalPagar() . "</p>";
+            echo "<div id='areaResposta'><p>id: [" . $valor->getId() . "]</p></div>";
+            echo "<div id='areaResposta'><p>Nome: " . $valor->getNome() . "</p></div>";
+            echo "<div id='areaResposta'><p>Cpf: " . $valor->getCpf() . "</p></div>";
+            echo "<div id='areaResposta'><p>Nascimento: " . $valor->getNascimento() . "</p></div>";
+            echo "<div id='areaResposta'><p>Email: " . $valor->getEmail() . "</p></div>";
+            echo "<div id='areaResposta'><p>Telefone: " . $valor->getTelefone() . "</p></div>";
+            echo "<div id='areaResposta'><p>Cidade: " . $valor->getCidade() . "</p></div>";
+            echo "<div id='areaResposta'><p>UF: " . $valor->getUF() . "</p></div>";
+            echo "<div id='areaResposta'><p>Fumante: " . $valor->getFumante() . "</p></div>";
+            echo "<div id='areaResposta'><p>Dias Hospedagem: " . $valor->getDiasHospedado() . "</p></div>";
+            echo "<div id='areaResposta'><p>Total a pagar: R$ " . $valor->getTotalPagar() . "</p></div>";
             echo "<br>";
         }
     }
 
     public function listaCliente($id)
     {
-        echo "<p>id: " . $this->cliente[$id - 1]->getId() . "</p>";
-        echo "<p>Nome: " . $this->cliente[$id - 1]->getNome() . "</p>";
-        echo "<p>Cpf: " . $this->cliente[$id - 1]->getCpf() . "</p>";
-        echo "<p>Nascimento: " . $this->cliente[$id - 1]->getNascimento() . "</p>";
-        echo "<p>Email: " . $this->cliente[$id - 1]->getEmail() . "</p>";
-        echo "<p>Telefone: " . $this->cliente[$id - 1]->getTelefone() . "</p>";
-        echo "<p>Cidade: " . $this->cliente[$id - 1]->getCidade() . "</p>";
-        echo "<p>UF: " . $this->cliente[$id - 1]->getUF() . "</p>";
-        echo "<p>Fumante: " . $this->cliente[$id - 1]->getFumante() . "</p>";
-        echo "<p>Dias Hospedagem: " . $this->cliente[$id - 1]->getDiasHospedado() . "</p>";
-        echo "<p>Total a pagar: R$ " . $this->cliente[$id - 1]->getTotalPagar() . "</p>";
+        echo "<div id='areaResposta'><p>id: " . $this->cliente[$id - 1]->getId() . "</p></div>";
+        echo "<div id='areaResposta'><p>Nome: " . $this->cliente[$id - 1]->getNome() . "</p></div>";
+        echo "<div id='areaResposta'><p>Cpf: " . $this->cliente[$id - 1]->getCpf() . "</p></div>";
+        echo "<div id='areaResposta'><p>Nascimento: " . $this->cliente[$id - 1]->getNascimento() . "</p></div>";
+        echo "<div id='areaResposta'><p>Email: " . $this->cliente[$id - 1]->getEmail() . "</p></div>";
+        echo "<div id='areaResposta'><p>Telefone: " . $this->cliente[$id - 1]->getTelefone() . "</p></div>";
+        echo "<div id='areaResposta'><p>Cidade: " . $this->cliente[$id - 1]->getCidade() . "</p></div>";
+        echo "<div id='areaResposta'><p>UF: " . $this->cliente[$id - 1]->getUF() . "</p></div>";
+        echo "<div id='areaResposta'><p>Fumante: " . $this->cliente[$id - 1]->getFumante() . "</p></div>";
+        echo "<div id='areaResposta'><p>Dias Hospedagem: " . $this->cliente[$id - 1]->getDiasHospedado() . "</p></div>";
+        echo "<div id='areaResposta'><p>Total a pagar: R$ " . $this->cliente[$id - 1]->getTotalPagar() . "</p></div>";
         echo "<br>";
     }
 
@@ -112,26 +112,26 @@ class Recepcionista implements Recepcao
     public function listaQuartos()
     {
         foreach ($this->quarto as $valor) {
-            echo "<p>Quarto [" . $valor->getIDQuarto() . "]</p>";
-            echo "<p>Localização: " . $valor->getLocalizacao() . "</p>";
-            echo "<p>Fumante: " . $valor->getFumante() . "</p>";
-            echo "<p>Valor da diária: R$" . $valor->getValorDiaria() . "</p>";
-            echo "<p>Capacidade: " . $valor->getCapacidade() . "</p>";
-            echo "<p>Situação: " . $valor->getSituacao() . "</p>";
-            echo "<p>Ocupado por: " . $valor->getOcupadoPor() . "</p>";
+            echo "<div id='areaResposta'><p>Quarto [" . $valor->getIDQuarto() . "]</p></div>";
+            echo "<div id='areaResposta'><p>Localização: " . $valor->getLocalizacao() . "</p></div>";
+            echo "<div id='areaResposta'><p>Fumante: " . $valor->getFumante() . "</p></div>";
+            echo "<div id='areaResposta'><p>Valor da diária: R$" . $valor->getValorDiaria() . "</p></div>";
+            echo "<div id='areaResposta'><p>Capacidade: " . $valor->getCapacidade() . "</p></div>";
+            echo "<div id='areaResposta'><p>Situação: " . $valor->getSituacao() . "</p></div>";
+            echo "<div id='areaResposta'><p>Ocupado por: " . $valor->getOcupadoPor() . "</p></div>";
             echo "<br>";
         }
     }
 
     public function listaQuarto($IDQuarto)
     {
-        echo "<p>Quarto [" . $this->quarto[$IDQuarto - 1]->getIDQuarto() . "]</p>";
-        echo "<p>Localização: " . $this->quarto[$IDQuarto - 1]->getLocalizacao() . "</p>";
-        echo "<p>Fumante: " . $this->quarto[$IDQuarto - 1]->getFumante() . "</p>";
-        echo "<p>Valor da diária: R$" . $this->quarto[$IDQuarto - 1]->getValorDiaria() . "</p>";
-        echo "<p>Capacidade: " . $this->quarto[$IDQuarto - 1]->getCapacidade() . "</p>";
-        echo "<p>Situação: " . $this->quarto[$IDQuarto - 1]->getSituacao() . "</p>";
-        echo "<p>Ocupado por: " . $this->quarto[$IDQuarto - 1]->getOcupadoPor() . "</p>";
+        echo "<div id='areaResposta'><p>Quarto [" . $this->quarto[$IDQuarto - 1]->getIDQuarto() . "]</p></div>";
+        echo "<div id='areaResposta'><p>Localização: " . $this->quarto[$IDQuarto - 1]->getLocalizacao() . "</p></div>";
+        echo "<div id='areaResposta'><p>Fumante: " . $this->quarto[$IDQuarto - 1]->getFumante() . "</p></div>";
+        echo "<div id='areaResposta'><p>Valor da diária: R$" . $this->quarto[$IDQuarto - 1]->getValorDiaria() . "</p></div>";
+        echo "<div id='areaResposta'><p>Capacidade: " . $this->quarto[$IDQuarto - 1]->getCapacidade() . "</p></div>";
+        echo "<div id='areaResposta'><p>Situação: " . $this->quarto[$IDQuarto - 1]->getSituacao() . "</p></div>";
+        echo "<div id='areaResposta'><p>Ocupado por: " . $this->quarto[$IDQuarto - 1]->getOcupadoPor() . "</p></div>";
         echo "<br>";
     }
 
@@ -146,13 +146,13 @@ class Recepcionista implements Recepcao
     {
         foreach ($this->quarto as $valor) {
             if ($valor->getSituacao() == 'Vago') {
-                echo "<p>Quarto [" . $valor->getIDQuarto() . "]</p>";
-                echo "<p>Localização: " . $valor->getLocalizacao() . "</p>";
-                echo "<p>Fumante: " . $valor->getFumante() . "</p>";
-                echo "<p>Valor da diária: R$" . $valor->getValorDiaria() . "</p>";
-                echo "<p>Capacidade: " . $valor->getCapacidade() . "</p>";
-                echo "<p>Situação: " . $valor->getSituacao() . "</p>";
-                echo "<br>";
+                echo "<div id='areaResposta'><p>Quarto [" . $valor->getIDQuarto() . "]</p></div>";
+                echo "<div id='areaResposta'><p>Localização: " . $valor->getLocalizacao() . "</p></div>";
+                echo "<div id='areaResposta'><p>Fumante: " . $valor->getFumante() . "</p></div>";
+                echo "<div id='areaResposta'><p>Valor da diária: R$" . $valor->getValorDiaria() . "</p></div>";
+                echo "<div id='areaResposta'><p>Capacidade: " . $valor->getCapacidade() . "</p></div>";
+                echo "<div id='areaResposta'><p>Situação: " . $valor->getSituacao() . "</p></div>";
+                echo "<div id='areaResposta'><br>";
             }
         }
     }
@@ -161,13 +161,13 @@ class Recepcionista implements Recepcao
     {
         foreach ($this->quarto as $valor) {
             if ($valor->getSituacao() == 'Ocupado') {
-                echo "<p>Quarto [" . $valor->getIDQuarto() . "]</p>";
-                echo "<p>Localização: " . $valor->getLocalizacao() . "</p>";
-                echo "<p>Fumante: " . $valor->getFumante() . "</p>";
-                echo "<p>Valor da diária: R$" . $valor->getValorDiaria() . "</p>";
-                echo "<p>Capacidade: " . $valor->getCapacidade() . "</p>";
-                echo "<p>Situação: " . $valor->getSituacao() . "</p>";
-                echo "<p>Ocupado por: " . $valor->getOcupadoPor() . "</p>";
+                echo "<div id='areaResposta'><p>Quarto [" . $valor->getIDQuarto() . "]</p></div>";
+                echo "<div id='areaResposta'><p>Localização: " . $valor->getLocalizacao() . "</p></div>";
+                echo "<div id='areaResposta'><p>Fumante: " . $valor->getFumante() . "</p></div>";
+                echo "<div id='areaResposta'><p>Valor da diária: R$" . $valor->getValorDiaria() . "</p></div>";
+                echo "<div id='areaResposta'><p>Capacidade: " . $valor->getCapacidade() . "</p></div>";
+                echo "<div id='areaResposta'><p>Situação: " . $valor->getSituacao() . "</p></div>";
+                echo "<div id='areaResposta'><p>Ocupado por: " . $valor->getOcupadoPor() . "</p></div>";
                 echo "<br>";
             }
         }

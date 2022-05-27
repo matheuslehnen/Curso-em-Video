@@ -1,0 +1,134 @@
+*{
+    margin: 0px;
+
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.18);
+    font-family: "Ink Free";
+}
+
+/*---------------------------------------- FORMATAÇÃO DO CABEÇALHO -----------------------------------------------*/
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    border: 3px solid #80142B;
+    align-items: center;
+    background-color: black;
+    color: #00A19C;
+
+    text-transform: uppercase;
+}
+
+#logo{
+    background-color: black;
+}
+
+header#h1{
+    margin-left: 100px;
+    color: #00A19C;
+    text-shadow: 3px 3px 3px #80142B;
+}
+
+h1 a {
+    color: #00A19C;
+    text-decoration: none;
+}
+
+h1 a:hover {
+    color: #80142B;
+}
+
+/*-------------------------------------------- FORMATAÇÃO DO MENU -----------------------------------------------*/
+
+
+nav.menu {
+    display: block;
+}
+
+nav.menu h1 {
+    display: none;
+}
+
+nav.menu li{
+    font-weight: bolder;
+    font-size: 14pt;
+    display: inline-block;
+    background-color: black;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+nav.menu a {
+    color: #00A19C;
+
+    text-decoration: none;
+}
+
+nav.menu a:hover {
+    color: #80142B;
+}
+
+/*----------------------------------------------- INTERFACE ---------------------------------------------------*/
+
+#corpo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+div#fundo {
+    width: 1300px;
+    height: 821px;
+    background-color: black;
+}
+img#imagemFundo {
+    width: 2135px;
+    height: 821px;
+    margin-left: -418px;
+
+}
+
+fieldset.fs{
+    margin: 55px 3px 15px 15px;
+    width: 450px;
+    border: 3px solid #80142B;
+    color: #00A19C;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    border-radius: 10px;
+}
+
+fieldset.fieldsetinterno{
+    border-radius: 10px;
+    border: 1px solid #80142B;
+}
+
+/*------------------------------------------------- FOOTER -----------------------------------------------------*/
+
+footer{
+    padding: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 3px solid #80142B;
+    align-items: center;
+    background-color: black;
+    color: #00A19C;
+    font-family: "Ink Free";
+    font-weight: bolder;
+    font-size: 10pt;
+    text-transform: uppercase;
+}
+footer a {
+    color: #00A19C;
+    text-decoration: none;
+    margin-left: 350px;
+}
+footer a:hover {
+    color: #80142B;
+
+}
