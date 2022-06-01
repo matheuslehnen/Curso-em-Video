@@ -11,28 +11,31 @@ body{
 /*---------------------------------------- FORMATAÇÃO DO CABEÇALHO -----------------------------------------------*/
 
 header{
-    display: flex;
-    justify-content: space-evenly;
-    border: 3px solid #80142B;
-    align-items: center;
+    width: 1530px;
+    height: 80px;
     background-color: black;
     color: #00A19C;
+    border: 3px solid #80142B;
     text-transform: uppercase;
+    margin: 0px auto 0px auto;
+    display: flex;
+    align-items: center;
+
 }
 
 #logo{
-    background-color: black;
+    background-color: white;
+    margin-left: 150px;
+    width: 80px;
+    height: 80px;
 }
 
-header#h1{
-    margin-left: 100px;
-    color: #00A19C;
-    text-shadow: 3px 3px 3px #80142B;
-}
 
 h1 a {
     color: #00A19C;
     text-decoration: none;
+    margin-left: 350px;
+
 }
 
 h1 a:hover {
@@ -43,7 +46,9 @@ h1 a:hover {
 
 
 nav.menu {
-    display: block;
+    width: 550px;
+    margin-left: 55px;
+
 }
 
 nav.menu h1 {
@@ -53,17 +58,12 @@ nav.menu h1 {
 nav.menu li{
     font-weight: bolder;
     font-size: 14pt;
-    display: inline-block;
-    background-color: black;
-    padding: 10px;
-    margin: 2px;
-    border-radius: 5px;
-    padding: 10px;
+    margin: 0px 4px 0 0px;
+    display: inline-flex;
 }
 
 nav.menu a {
     color: #00A19C;
-
     text-decoration: none;
 }
 
@@ -71,6 +71,9 @@ nav.menu a:hover {
     color: #80142B;
 }
 
+li {
+    list-style-type: none;
+}
 /*----------------------------------------------- INTERFACE ---------------------------------------------------*/
 
 #corpo{
@@ -80,31 +83,31 @@ nav.menu a:hover {
 }
 
 div#fundo {
-    width: 1300px;
-    height: 821px;
+    width: 1000px;
+    height: 549px;
     background-color: black;
+    margin: 0px auto 0px auto;
 }
-img#imagemFundo {
-    width: 2135px;
-    height: 821px;
-    margin-left: -418px;
 
+img#imagemFundo {
+    width: 1000px;
+    height: 549px;
 }
 
 fieldset.fs{
-    margin: 55px 3px 15px 400px;
+    margin: 20px auto 5px auto;
     width: 450px;
     border: 3px solid #80142B;
     color: #00A19C;
     font-family: Arial, sans-serif;
     font-weight: bolder;
-    font-size: 22px;
+    font-size: 15px;
     border-radius: 10px;
 }
 
 fieldset.fieldsetinterno{
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
     border: 1px solid #80142B;
 }
 
@@ -124,25 +127,33 @@ div#titulo h3 {
     margin: 10px auto 10px 20px;
 }
 
+input {
+    font-size: 13px;
+    margin: 3px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
 /*------------------------------------------------- FOOTER -----------------------------------------------------*/
 
 footer{
-    padding: 50px;
-    display: flex;
-    justify-content: space-evenly;
+    width: 1530px;
+    height: 80px;
     border: 3px solid #80142B;
-    align-items: center;
     background-color: black;
     color: #00A19C;
     font-family: "Ink Free";
     font-weight: bolder;
-    font-size: 14pt;
+    font-size: 12pt;
     text-transform: uppercase;
+    margin: 0px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 footer a {
     color: #00A19C;
     text-decoration: none;
-    margin-left: 350px;
 }
 footer a:hover {
     color: #80142B;

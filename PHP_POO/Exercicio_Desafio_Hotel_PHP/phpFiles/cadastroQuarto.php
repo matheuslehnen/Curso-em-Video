@@ -22,18 +22,12 @@ require_once 'Recepcionista.php';
 <body>
 <div id="interface">
     <header>
-        <div id="logo">
-            <img src="../img/logoTheGallery2.jpg" alt="">
-        </div>
-        <nav class="menu">
-            <ul>
-                <li><a href="http://localhost/Curso-em-Video/PHP_POO/Exercicio_Desafio_Hotel_PHP/phpFiles/areaRecepcao.php">Recepção</a></li>
-            </ul>
-        </nav>
+        <div id="logo"><img src="../img/logoTheGallery.jpg" alt=""></div>
         <h1><a href="../index.html">The Gallery Hostel</a></h1>
         <nav class="menu">
             <ul><h1>Menu Principal</h1>
                 <li><a href="../index.html">Home</a></li>
+                <li><a href="areaRecepcao.php">Recepção</a></li>
                 <li><a href="../Acomodações.html">Acomodações</a></li>
                 <li><a href="../Reservas.html">Reservas</a></li>
                 <li><a href="../Contato.html">Contato</a></li>

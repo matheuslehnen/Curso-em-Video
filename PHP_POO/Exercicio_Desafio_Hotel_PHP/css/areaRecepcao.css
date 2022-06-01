@@ -11,32 +11,33 @@ div#titulo h3 {
 
 div#subTitulo{
     color: #00A19C;
-    width: 850px;
+    width: 550px;
     height: 75px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 100px auto 0px auto;
-    font-size: 40pt;
+    margin: 45px auto 0px auto;
+    font-size: 30pt;
     font-weight: bolder;
     border-radius: 15px;
 }
 
 div#areaEscolhasClientes{
-    width: 200px;
-    height: 210px;
-    margin: -75px 0px 0px 15px;
-    font-size: 20pt;
+    width: 140px;
+    height: 170px;
+    margin: -100px 0px 0px 15px;
+    font-size: 15pt;
     color: #00A19C;
     text-align: center;
     border-radius: 15px;
 }
 
 div#areaEscolhasQuartos{
-    width: 200px;
-    height: 210px;
-    margin: -210px 0px 0px 1085px;
-    font-size: 20pt;
+    width: 140px;
+    height: 170px;
+    height: 170px;
+    margin: -170px 0px 0px 845px;
+    font-size: 15pt;
     color: #00A19C;
     text-align: center;
     border-radius: 15px;
@@ -45,19 +46,19 @@ div#areaEscolhasQuartos{
 div#areaResposta {
     font-weight: bolder;
     font-size: 15pt;
-    width: 1270px;
-    height: 400px;
+    width: 970px;
+    height: 260px;
     color: #80142B;
-    margin: 30px 0px 0px 15px;
+    margin: 5px 0px 0px 15px;
     border-radius: 15px;
 }
 
 table#resposta {
     font-weight: bolder;
-    font-size: 15pt;
-    width: 1270px;
-    height: 32px;
-    margin: 5px 0px 0px 0px;
+    font-size: 12pt;
+    width: 1000px;
+    height: 30px;
+    margin: 5px auto 0px -15px;
     border-radius: 15px;
     display: table;
     text-align: center;
@@ -72,10 +73,9 @@ table#resposta {
 }
 
 .botoesRecepcao{
-    padding: 10px;
-    border-radius: 15px;
+    width: 140px;
     font-weight: bolder;
-    font-size: 20pt;
+    font-size: 15pt;
     font-family: "Ink Free";
     color: #00A19C;
     cursor: pointer;

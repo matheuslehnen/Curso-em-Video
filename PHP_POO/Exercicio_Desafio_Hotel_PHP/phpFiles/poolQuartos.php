@@ -24,16 +24,12 @@ $recepcionista = new Recepcionista();
 <body>
 <div id="interface">
     <header>
-        <div id="logo"><img src="../img/logoTheGallery2.jpg" alt=""></div>
-        <nav class="menu">
-            <ul>
-                <li><a href="areaRecepcao.php">Recepção</a></li>
-            </ul>
-        </nav>
+        <div id="logo"><img src="../img/logoTheGallery.jpg" alt=""></div>
         <h1><a href="../index.html">The Gallery Hostel</a></h1>
         <nav class="menu">
             <ul><h1>Menu Principal</h1>
                 <li><a href="../index.html">Home</a></li>
+                <li><a href="areaRecepcao.php">Recepção</a></li>
                 <li><a href="../Acomodações.html">Acomodações</a></li>
                 <li><a href="../Reservas.html">Reservas</a></li>
                 <li><a href="../Contato.html">Contato</a></li>
@@ -47,8 +43,8 @@ $recepcionista = new Recepcionista();
                 <h3>Pool de quartos</h3>
             </div>
             <div id="pool">
+
                 <?php
-                //echo "<div class='cubos'>Quarto " . $id . "</div>"
                 $recepcionista->listaQuartosPool();
                 ?>
             </div>
