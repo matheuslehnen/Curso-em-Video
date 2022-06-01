@@ -1,10 +1,12 @@
 <?php
-
-require_once 'Pessoa.php';
+session_start();
 require_once 'Cliente.php';
 require_once 'Hotel.php';
+require_once 'Pessoa.php';
 require_once 'Quarto.php';
 require_once 'Recepcao.php';
+require_once 'Recepcionista.php';
+
 
 class Recepcionista implements Recepcao
 {
@@ -15,70 +17,79 @@ class Recepcionista implements Recepcao
 
     //----------------------------------------------- CLIENTES ------------------------------------------------------//
 
+
     public function cadastraCliente($nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante)
     {
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+
         if (!($this->existeCPF($cpf)) && $this->validaCPF($cpf)) {
+            if ($fumante) {
+                $fuma = 'Fumante';
+            } else {
+                $fuma = 'Nao-fumante';
+            }
             $this->cliente[] = new Cliente(count($this->cliente) + 1, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante);
+            $sql = mysqli_query($conexao, "insert into hospedes values (default, '$nome', '$cpf', '$nascimento', '$email','$telefone', '$cidade', '$UF', '$fuma', default)");
         } else {
             echo "Erro! CPF inválido ou a pessoa já está cadastrada no sistema.";
         }
     }
 
 
-    public function editaCliente($id, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante, $diasHospedado)
+    public function editaCliente($id, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante)
     {
-        $this->cliente[$id - 1]->setNome($nome);
-        $this->cliente[$id - 1]->setCpf($cpf);
-        $this->cliente[$id - 1]->setNascimento($nascimento);
-        $this->cliente[$id - 1]->setEmail($email);
-        $this->cliente[$id - 1]->setTelefone($telefone);
-        $this->cliente[$id - 1]->setCidade($cidade);
-        $this->cliente[$id - 1]->setUF($UF);
+
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
         if ($fumante) {
-            $this->cliente[$id - 1]->setFumante('Fumante');
+            $fuma = 'Fumante';
         } else {
-            $this->cliente[$id - 1]->setFumante('Nao-fumante');
+            $fuma = 'Nao-fumante';
         }
-        $this->cliente[$id - 1]->setDiasHospedado($diasHospedado);
+        $sql = mysqli_query($conexao, "update hospedes set nome = '$nome', cpf = '$cpf', nascimento = '$nascimento', email = '$email', telefone = '$telefone', cidade = '$cidade', UF = '$UF', fumante = '$fuma' where id  = $id");
+
     }
 
     public function listaClientes()
     {
-        foreach ($this->cliente as $valor) {
-            echo "<div id='areaResposta'><p>id: [" . $valor->getId() . "]</p></div>";
-            echo "<div id='areaResposta'><p>Nome: " . $valor->getNome() . "</p></div>";
-            echo "<div id='areaResposta'><p>Cpf: " . $valor->getCpf() . "</p></div>";
-            echo "<div id='areaResposta'><p>Nascimento: " . $valor->getNascimento() . "</p></div>";
-            echo "<div id='areaResposta'><p>Email: " . $valor->getEmail() . "</p></div>";
-            echo "<div id='areaResposta'><p>Telefone: " . $valor->getTelefone() . "</p></div>";
-            echo "<div id='areaResposta'><p>Cidade: " . $valor->getCidade() . "</p></div>";
-            echo "<div id='areaResposta'><p>UF: " . $valor->getUF() . "</p></div>";
-            echo "<div id='areaResposta'><p>Fumante: " . $valor->getFumante() . "</p></div>";
-            echo "<div id='areaResposta'><p>Dias Hospedagem: " . $valor->getDiasHospedado() . "</p></div>";
-            echo "<div id='areaResposta'><p>Total a pagar: R$ " . $valor->getTotalPagar() . "</p></div>";
-            echo "<br>";
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+        $sql = mysqli_query($conexao, "select * from hospedes");
+
+        echo "<thead><tr><th class='campos'>ID</th>";
+        echo "<th class='campos'>Nome</th>";
+        echo "<th class='campos'>CPF</th>";
+        echo "<th class='campos'>Nascimento</th>";
+        echo "<th class='campos'>Email</th>";
+        echo "<th class='campos'>Telefone</th>";
+        echo "<th class='campos'>Cidade</th>";
+        echo "<th class='campos'>UF</th>";
+        echo "<th class='campos'>Fumante</th></tr></thead>";
+
+        while ($valor = mysqli_fetch_assoc($sql)) {
+            echo "<tbody><tr><td class='campos'><input type='checkbox' name='checked[]' value=" . $valor['id'] . ">[" . $valor['id'] . "]</td>";
+            echo "<td class='campos'>" . $valor['nome'] . "</td>";
+            echo "<td class='campos'>" . $valor['cpf'] . "</td>";
+            echo "<td class='campos'>" . $valor['nascimento'] . "</td>";
+            echo "<td class='campos'>" . $valor['email'] . "</td>";
+            echo "<td class='campos'>" . $valor['telefone'] . "</td>";
+            echo "<td class='campos'>" . $valor['cidade'] . "</td>";
+            echo "<td class='campos'>" . $valor['UF'] . "</td>";
+            echo "<td class='campos'>" . $valor['fumante'] . "</td></tr></tbody>";
         }
+
     }
 
-    public function listaCliente($id)
+    public function excluiClientes($id)
     {
-        echo "<div id='areaResposta'><p>id: " . $this->cliente[$id - 1]->getId() . "</p></div>";
-        echo "<div id='areaResposta'><p>Nome: " . $this->cliente[$id - 1]->getNome() . "</p></div>";
-        echo "<div id='areaResposta'><p>Cpf: " . $this->cliente[$id - 1]->getCpf() . "</p></div>";
-        echo "<div id='areaResposta'><p>Nascimento: " . $this->cliente[$id - 1]->getNascimento() . "</p></div>";
-        echo "<div id='areaResposta'><p>Email: " . $this->cliente[$id - 1]->getEmail() . "</p></div>";
-        echo "<div id='areaResposta'><p>Telefone: " . $this->cliente[$id - 1]->getTelefone() . "</p></div>";
-        echo "<div id='areaResposta'><p>Cidade: " . $this->cliente[$id - 1]->getCidade() . "</p></div>";
-        echo "<div id='areaResposta'><p>UF: " . $this->cliente[$id - 1]->getUF() . "</p></div>";
-        echo "<div id='areaResposta'><p>Fumante: " . $this->cliente[$id - 1]->getFumante() . "</p></div>";
-        echo "<div id='areaResposta'><p>Dias Hospedagem: " . $this->cliente[$id - 1]->getDiasHospedado() . "</p></div>";
-        echo "<div id='areaResposta'><p>Total a pagar: R$ " . $this->cliente[$id - 1]->getTotalPagar() . "</p></div>";
-        echo "<br>";
-    }
-
-    public function excluiCliente($id)
-    {
-        unset($this->cliente[$id]);
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+        $sql = mysqli_query($conexao, "delete from hospedes where id = $id");
     }
 
 
@@ -87,64 +98,81 @@ class Recepcionista implements Recepcao
 
     public function cadastraQuarto($localizacao, $fumante, $valorDiaria, $capacidade, $situacao)
     {
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+
         $this->quarto[] = new Quarto(count($this->quarto) + 1, $localizacao, $fumante, $valorDiaria, $capacidade, $situacao);
+        $sql = mysqli_query($conexao, "insert into quartos values (default, '$localizacao', '$fumante', '$valorDiaria', '$capacidade','$situacao')");
     }
 
 
     public function editaQuarto($IDQuarto, $localizacao, $fumante, $valorDiaria, $capacidade, $situacao)
     {
-        $this->quarto[$IDQuarto - 1]->setLocalizacao($localizacao);
-        if ($fumante) {
-            $this->quarto[$IDQuarto - 1]->setFumante('Permitido');
-        } else {
-            $this->quarto[$IDQuarto - 1]->setFumante('Proibido');
-        }
-        $this->quarto[$IDQuarto - 1]->setValorDiaria($valorDiaria);
-        $this->quarto[$IDQuarto - 1]->setCapacidade($capacidade);
-        if ($situacao) {
-            $this->quarto[$IDQuarto - 1]->setSituacao('Ocupado');
-        } else {
-            $this->quarto[$IDQuarto - 1]->setSituacao('Vago');
-        }
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+        $sql = mysqli_query($conexao, "update quartos set localizacao = '$localizacao', fumante = '$fumante', valorDiaria = '$valorDiaria', capacidade = '$capacidade', situacao = '$situacao' where id  = $IDQuarto");
+
     }
 
 
     public function listaQuartos()
     {
-        foreach ($this->quarto as $valor) {
-            echo "<div id='areaResposta'><p>Quarto [" . $valor->getIDQuarto() . "]</p></div>";
-            echo "<div id='areaResposta'><p>Localização: " . $valor->getLocalizacao() . "</p></div>";
-            echo "<div id='areaResposta'><p>Fumante: " . $valor->getFumante() . "</p></div>";
-            echo "<div id='areaResposta'><p>Valor da diária: R$" . $valor->getValorDiaria() . "</p></div>";
-            echo "<div id='areaResposta'><p>Capacidade: " . $valor->getCapacidade() . "</p></div>";
-            echo "<div id='areaResposta'><p>Situação: " . $valor->getSituacao() . "</p></div>";
-            echo "<div id='areaResposta'><p>Ocupado por: " . $valor->getOcupadoPor() . "</p></div>";
-            echo "<br>";
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+        $sql = mysqli_query($conexao, "select * from quartos");
+
+        echo "<thead><tr><th class='campos'>ID</th>";
+        echo "<th class='campos'>Localização</th>";
+        echo "<th class='campos'>Fumante</th>";
+        echo "<th class='campos'>Valor da Diária R$</th>";
+        echo "<th class='campos'>Capacidade</th>";
+        echo "<th class='campos'>Situação</th></tr></thead>";
+
+        while ($valor = mysqli_fetch_assoc($sql)) {
+            echo "<tbody><tr><td class='campos'><input type='checkbox' name='checked[]' value=" . $valor['id'] . ">[" . $valor['id'] . "]</td>";
+            echo "<td class='campos'>" . $valor['localizacao'] . "</td>";
+            echo "<td class='campos'>" . $valor['fumante'] . "</td>";
+            echo "<td class='campos'>" . $valor['valorDiaria'] . "</td>";
+            echo "<td class='campos'>" . $valor['capacidade'] . "</td>";
+            echo "<td class='campos'>" . $valor['situacao'] . "</td></tr></tbody>";
+
         }
     }
 
-    public function listaQuarto($IDQuarto)
+    public function listaQuartosPool()
     {
-        echo "<div id='areaResposta'><p>Quarto [" . $this->quarto[$IDQuarto - 1]->getIDQuarto() . "]</p></div>";
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+        $sql = mysqli_query($conexao, "select * from quartos");
+
+            while ($valor = mysqli_fetch_assoc($sql)) {
+                if($valor['situacao'] == "Vago"){
+                echo "<div class='cubos'>Quarto " . $valor['id'] . "</div>";
+                }
+                if($valor['situacao'] == "Ocupado"){
+                    echo "<div class='cubos' style='background-color:red; color:#c6c6c6;'>Quarto " . $valor['id'] . "</div>";
+                }
+            }
+        /*echo "<div id='areaResposta'><p>Quarto [" . $this->quarto[$IDQuarto - 1]->getIDQuarto() . "]</p></div>";
         echo "<div id='areaResposta'><p>Localização: " . $this->quarto[$IDQuarto - 1]->getLocalizacao() . "</p></div>";
         echo "<div id='areaResposta'><p>Fumante: " . $this->quarto[$IDQuarto - 1]->getFumante() . "</p></div>";
         echo "<div id='areaResposta'><p>Valor da diária: R$" . $this->quarto[$IDQuarto - 1]->getValorDiaria() . "</p></div>";
         echo "<div id='areaResposta'><p>Capacidade: " . $this->quarto[$IDQuarto - 1]->getCapacidade() . "</p></div>";
         echo "<div id='areaResposta'><p>Situação: " . $this->quarto[$IDQuarto - 1]->getSituacao() . "</p></div>";
         echo "<div id='areaResposta'><p>Ocupado por: " . $this->quarto[$IDQuarto - 1]->getOcupadoPor() . "</p></div>";
-        echo "<br>";
+        echo "<br>";*/
     }
 
 
-    public function excluiQuarto($IDQuarto)
-    {
-        unset($this->quarto[$IDQuarto]);
-    }
 
 
     public function listaQuartosDisponiveis()
     {
-        foreach ($this->quarto as $valor) {
+        /*foreach ($this->quarto as $valor) {
             if ($valor->getSituacao() == 'Vago') {
                 echo "<div id='areaResposta'><p>Quarto [" . $valor->getIDQuarto() . "]</p></div>";
                 echo "<div id='areaResposta'><p>Localização: " . $valor->getLocalizacao() . "</p></div>";
@@ -154,7 +182,7 @@ class Recepcionista implements Recepcao
                 echo "<div id='areaResposta'><p>Situação: " . $valor->getSituacao() . "</p></div>";
                 echo "<div id='areaResposta'><br>";
             }
-        }
+        }*/
     }
 
     public function listaQuartosOcupados()
@@ -173,7 +201,14 @@ class Recepcionista implements Recepcao
         }
     }
 
-
+    public function excluiQuartos($IDQuarto)
+    {
+        //unset($this->quarto[$IDQuarto]);
+        $conexao = mysqli_connect('localhost', 'root', '');
+        $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
+        mysqli_set_charset($conexao, 'utf8');
+        $sql = mysqli_query($conexao, "delete from quartos where id = $IDQuarto");
+    }
 
 
     //------------------------------------- FUNCOES CHECK-IN E CHECK-OUT --------------------------------------------//
@@ -266,7 +301,7 @@ class Recepcionista implements Recepcao
     }
 
 
-  //------------------------------------- MÉTODOS GETTERS AND SETTERS ---------------------------------------------//
+    //------------------------------------- MÉTODOS GETTERS AND SETTERS ---------------------------------------------//
 
 
     public function getCliente(): array
@@ -291,6 +326,4 @@ class Recepcionista implements Recepcao
     {
         $this->quarto = $quarto;
     }
-
 }
-

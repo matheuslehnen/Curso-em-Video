@@ -5,18 +5,17 @@ interface Recepcao
   //---------------------------------------------- CLIENTES -------------------------------------------------------//
 
     public function cadastraCliente($nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante);
-    public function editaCliente($id, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante, $diasHospedado);
+    public function editaCliente($id, $nome, $cpf, $nascimento, $email, $telefone, $cidade, $UF, $fumante);
     public function listaClientes();
-    public function listaCliente($id);
-    public function excluiCliente($id);
+    public function excluiClientes($id);
 
   //---------------------------------------------- QUARTOS --------------------------------------------------------//
 
     public function cadastraQuarto($localizacao, $fumante, $valorDiaria, $capacidade, $situacao);
     public function editaQuarto($IDQuarto, $localizacao, $fumante, $valorDiaria, $capacidade, $situacao);
     public function listaQuartos();
-    public function listaQuarto($IDQuarto);
-    public function excluiQuarto($IDQuarto);
+    public function listaQuartosPool();
+    public function excluiQuartos($IDQuarto);
     public function listaQuartosDisponiveis();
     public function listaQuartosOcupados();
 

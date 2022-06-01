@@ -17,7 +17,6 @@ header{
     align-items: center;
     background-color: black;
     color: #00A19C;
-
     text-transform: uppercase;
 }
 
@@ -93,7 +92,7 @@ img#imagemFundo {
 }
 
 fieldset.fs{
-    margin: 55px 3px 15px 15px;
+    margin: 55px 3px 15px 400px;
     width: 450px;
     border: 3px solid #80142B;
     color: #00A19C;
@@ -105,7 +104,24 @@ fieldset.fs{
 
 fieldset.fieldsetinterno{
     border-radius: 10px;
+    margin-top: 10px;
     border: 1px solid #80142B;
+}
+
+div#titulo {
+    width: 500px;
+    height: 80px;
+    font-size: 15pt;
+    text-transform: uppercase;
+    margin: 5px auto 0px auto;
+    color: #00A19C;
+}
+
+div#titulo h3 {
+    color: #00A19C;
+    font-size: 15pt;
+    width: 470px;
+    margin: 10px auto 10px 20px;
 }
 
 /*------------------------------------------------- FOOTER -----------------------------------------------------*/
@@ -120,7 +136,7 @@ footer{
     color: #00A19C;
     font-family: "Ink Free";
     font-weight: bolder;
-    font-size: 10pt;
+    font-size: 14pt;
     text-transform: uppercase;
 }
 footer a {
@@ -130,5 +146,4 @@ footer a {
 }
 footer a:hover {
     color: #80142B;
-
 }
