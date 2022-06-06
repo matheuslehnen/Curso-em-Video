@@ -10,13 +10,13 @@ div#titulo h3 {
     margin: 10px auto 10px auto;
 }
 
-
-
-
-
-
-input#fID {
-    width: 35px;
+select#fID {
+    font-size: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 90px;
+    width: 45px;
 }
 
 select#fLocalizacao{
@@ -33,15 +33,16 @@ input#fValorDiaria {
 }
 
 input.fQuartoFumante{
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 label[for="fQuartoFumante"]{
-    margin-left: 75px;
+    margin-left: 5px;
 }
 label[for="fQuartoNao-fumante"]{
-    margin-left: 75px;
+    margin-left: 5px;
 }
+
 input#fCapacidade{
     width: 40px;
 
@@ -52,15 +53,4 @@ select#fSituacao{
     border-radius: 10px;
     padding: 5px;
     width: 120px;
-}
-
-#botaoEditaQuarto{
-    margin-left: 150px;
-    padding: 15px;
-    background-color: #00A19C;
-}
-
-#botaoEditaQuarto:hover{
-    background-color: #80142B;
-    transition: 1s;
 }

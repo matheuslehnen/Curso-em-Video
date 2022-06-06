@@ -28,22 +28,14 @@ input#fEmail {
     width: 300px;
 
 }
+
 input#fTelefone {
     width: 130px;
 }
+
 input#fCidade {
     width: 130px;
 }
-input.fFuma{
-    margin-left: 15px;
-}
-label[for="fumante"]{
-    margin-left: 75px;
-}
-label[for="Nao-fumante"]{
-    margin-left: 75px;
-}
-
 
 select#fUF{
     font-size: 15px;
@@ -53,15 +45,17 @@ select#fUF{
     width: 220px;
 }
 
-
-
-#botaoCadastroCliente{
-    margin-left: 150px;
-    padding: 15px;
-    background-color: #00A19C;
+input.fFuma{
+    margin-left: 5px;
 }
 
-#botaoCadastroCliente:hover{
-    background-color: #80142B;
-    transition: 1s;
+label[for="fumante"]{
+    margin-left: 5px;
 }
+
+label[for="Nao-fumante"]{
+    margin-left: 5px;
+}
+
+
+

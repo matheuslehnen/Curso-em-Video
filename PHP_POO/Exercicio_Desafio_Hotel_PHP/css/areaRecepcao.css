@@ -1,3 +1,50 @@
+header{
+    width: 1530px;
+    height: 80px;
+
+    color: #00A19C;
+    border: 3px solid #80142B;
+    text-transform: uppercase;
+    margin: 0px auto 0px auto;
+    display: flex;
+    align-items: center;
+
+}
+
+#logo{
+    background-color: white;
+    margin-left: 150px;
+    width: 80px;
+    height: 80px;
+}
+
+#welcome{
+    margin-left: 60px;
+    width: 140px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h1 a {
+    color: #00A19C;
+    text-decoration: none;
+    margin-left: 150px;
+
+}
+
+h1 a:hover {
+    color: #80142B;
+}
+
+div#fundo {
+    width: 1200px;
+    height: 549px;
+    background-color: black;
+    margin: 0px auto 0px auto;
+}
+
+
+
 div#titulo {
     margin: 5px auto 0px auto;
     width: 460px;
@@ -25,7 +72,7 @@ div#subTitulo{
 div#areaEscolhasClientes{
     width: 140px;
     height: 170px;
-    margin: -100px 0px 0px 15px;
+    margin: -90px 0px 0px 15px;
     font-size: 15pt;
     color: #00A19C;
     text-align: center;
@@ -36,7 +83,7 @@ div#areaEscolhasQuartos{
     width: 140px;
     height: 170px;
     height: 170px;
-    margin: -170px 0px 0px 845px;
+    margin: -170px 0px 0px 1030px;
     font-size: 15pt;
     color: #00A19C;
     text-align: center;
@@ -46,33 +93,60 @@ div#areaEscolhasQuartos{
 div#areaResposta {
     font-weight: bolder;
     font-size: 15pt;
-    width: 970px;
+    width: 1200px;
     height: 260px;
     color: #80142B;
-    margin: 5px 0px 0px 15px;
+    margin: -255px 0px 0px 0px;
     border-radius: 15px;
+
 }
 
 table#resposta {
     font-weight: bolder;
     font-size: 12pt;
-    width: 1000px;
-    height: 30px;
-    margin: 5px auto 0px -15px;
+    width: 1200px;
+    height: 20px;
+    margin: 5px auto 0px 0px;
     border-radius: 15px;
     display: table;
     text-align: center;
+
 }
+
+#poolArea{
+    border-radius: 15px;
+    margin: 0px auto 0px auto;
+    width: 1200px;
+    height: 260px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    align-items: center;
+    align-content: flex-start;
+}
+
+
+
+.cubos{
+    margin-left: 5px;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bolder;
+    background-color: #00A19C;
+    border-radius: 15px;
+    height: 75px;
+    width: 75px;
+    color: #80142B;
+}
+
 
 .campos{
     color: #80142B;
-    padding: 3px;
     font-weight: bolder;
-    margin-left: 7px;
-    border-radius: 15px;
 }
 
-.botoesRecepcao{
+.botoesAreaRecepcao{
     width: 140px;
     font-weight: bolder;
     font-size: 15pt;
@@ -81,7 +155,7 @@ table#resposta {
     cursor: pointer;
     background-color: black;
 }
-.botoesRecepcao:hover{
+.botoesAreaRecepcao:hover{
     color: #80142B;
 }
 
@@ -132,26 +206,26 @@ table#resposta {
     color: #80142B;
 }
 
-#listaClientes {
-    padding: 10px;
-    border-radius: 15px;
-    font-weight: bolder;
-}
-
-#listaClientes a{
-    text-decoration: none;
-    color: #00A19C;
-}
-
-#listaClientes a:hover{
-    color: #80142B;
-}
-
 #excluiClientes {
 
 }
 
 #excluiClientes:hover{
+    color: #80142B;
+}
+
+#check-In {
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bolder;
+}
+
+#check-In a{
+    text-decoration: none;
+    color: #00A19C;
+}
+
+#check-In a:hover{
     color: #80142B;
 }
 
@@ -185,6 +259,26 @@ table#resposta {
     color: #80142B;
 }
 
+#poolQuartos {
+    padding: 2px;
+    margin-top: 20px;
+    border-radius: 15px;
+    font-weight: bolder;
+}
+
+#poolQuartos a{
+    text-decoration: none;
+    color: #00A19C;
+}
+
+#poolQuartos a:hover{
+    color: #80142B;
+}
+
+
+input[type='checkbox']{
+    cursor: pointer;
+}
 
 #editaQuartos {
     padding: 10px;
@@ -201,23 +295,18 @@ table#resposta {
     color: #80142B;
 }
 
-
-#listaQuartos {
+#check-Out {
     padding: 10px;
     border-radius: 15px;
     font-weight: bolder;
 }
 
-#listaQuartos a{
+#check-Out a{
     text-decoration: none;
     color: #00A19C;
 }
 
-#listaQuartos a:hover{
+#check-Out a:hover{
     color: #80142B;
 }
 
-
-input[type='checkbox']{
-    cursor: pointer;
-}

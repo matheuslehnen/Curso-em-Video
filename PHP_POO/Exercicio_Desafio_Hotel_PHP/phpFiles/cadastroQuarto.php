@@ -1,12 +1,7 @@
 <?php
-require_once 'Cliente.php';
-require_once 'Quarto.php';
 require_once 'Recepcionista.php';
-
-    $conexao = mysqli_connect('localhost', 'root', '');
-    $banco = mysqli_select_db($conexao, 'the_gallery_hostel');
-    mysqli_set_charset($conexao, 'utf8');
-
+$recepcionista = new Recepcionista();
+$connection = $recepcionista->connection();
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -20,17 +15,18 @@ require_once 'Recepcionista.php';
     <link rel="stylesheet" href="../css/cadastroQuarto.css">
 </head>
 <body>
-<div id="interface">
+<main>
     <header>
         <div id="logo"><img src="../img/logoTheGallery.jpg" alt=""></div>
-        <h1><a href="../index.html">The Gallery Hostel</a></h1>
+        <h1><a href="index.php">The Gallery Hostel</a></h1>
         <nav class="menu">
             <ul><h1>Menu Principal</h1>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="Acomodações.php">Acomodações</a></li>
+                <li><a href="Reservas.php">Reservas</a></li>
+                <li><a href="Contato.php">Contato</a></li>
+                <li><a href="index.php" onclick="window.open('areaLogin.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Login</a></li>
                 <li><a href="areaRecepcao.php">Recepção</a></li>
-                <li><a href="../Acomodações.html">Acomodações</a></li>
-                <li><a href="../Reservas.html">Reservas</a></li>
-                <li><a href="../Contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -40,7 +36,7 @@ require_once 'Recepcionista.php';
                 <h2>The Gallery Hostel Floripa</h2>
                 <h3>Area reservada para recepção.</h3>
             </div>
-            <form action="main.php" method="post">
+            <form action="Recepcionista.php" method="post">
                 <fieldset class="fs">
                     <legend>Cadastro de Quarto</legend>
                     <label for="fLocalizacao"> Localização do quarto:
@@ -51,27 +47,26 @@ require_once 'Recepcionista.php';
                             <option value="Oeste">Oeste</option>
                         </select>
                     </label><br>
-                    <label for="fValorDiaria">Valor da Diária: <input type="number" id="fValorDiaria" name="fValorDiaria" placeholder="R$"></label><br>
-                    <label for="fCapacidade">Capacidade: <input type="text" id="fCapacidade" name="fCapacidade" placeholder="Pax"></label><br>
-                    <label for="fSituacao">Situação:
-                        <select name="fSituacao" id="fSituacao">
-                            <option value="Vago">Vago</option>
-                            <option value="Ocupado">Ocupado</option>
-                        </select>
-                    </label>
+                    <label for="fValorDiaria">Valor da Diária: <input type="number" id="fValorDiaria"
+                                                                      name="fValorDiaria" placeholder="R$"></label><br>
+                    <label for="fCapacidade">Capacidade: <input type="text" id="fCapacidade" name="fCapacidade"
+                                                                placeholder="Pax"></label><br>
                     <fieldset class="fieldsetinterno">
                         <legend>Permite fumantes:</legend>
-                        <label for="fQuartoFumante">Sim<input type="radio" id="fQuartoFumante" name="fQuartoFumante" value="Fumante"></label>
-                        <label for="fQuartoNao-fumante">Não<input type="radio" id="fQuartoNao-fumante" name="fQuartoFumante"value="Não-fumante"></label>
+                        <label for="fQuartoFumante">Sim<input type="radio" id="fQuartoFumante" name="fQuartoFumante"
+                                                              value="Fumante"></label>
+                        <label for="fQuartoNao-fumante">Não<input type="radio" id="fQuartoNao-fumante"
+                                                                  name="fQuartoFumante" value="Não-Fumante"></label>
                     </fieldset>
-                    <input id="botaoCadastroQuarto" name="botaoCadastroQuarto" class="botoes" type="submit">
+                    <input id="botaoCadastroQuarto" name="botaoCadastroQuarto" class="botoesRecepcao" type="submit">
                 </fieldset>
             </form>
         </div>
     </section>
-    <footer>
-        <p><a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a></p></br>
-    </footer>
-</div>
+</main>
+<footer>
+    <p><a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a></p></br>
+</footer>
+
 </body>
 </html>

@@ -1,16 +1,13 @@
 <?php
-require_once 'Cliente.php';
-require_once 'Quarto.php';
 require_once 'Recepcionista.php';
-
-$conexao = mysqli_connect('localhost', 'root', '');
-$banco = mysqli_select_db($conexao, 'the_gallery_hostel');
-mysqli_set_charset($conexao, 'utf8');
 $recepcionista = new Recepcionista();
+$connection = $recepcionista->connection();
 
+if ((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)) {
+    header('location:index.php');
+}
+//$logado = $_SESSION['login'];
 ?>
-
-
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -23,17 +20,21 @@ $recepcionista = new Recepcionista();
     <link rel="stylesheet" href="../css/areaRecepcao.css">
 </head>
 <body>
-<div id="interface">
+<main>
     <header>
         <div id="logo"><img src="../img/logoTheGallery.jpg" alt=""></div>
-        <h1><a href="../index.html">The Gallery Hostel</a></h1>
+        <?php
+        echo "<div id='welcome' <span>Bem vindo " . $_SESSION['login'] . "</span></div>";
+        ?>
+        <h1><a href="index.php">The Gallery Hostel</a></h1>
         <nav class="menu">
             <ul><h1>Menu Principal</h1>
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="Acomodações.php">Acomodações</a></li>
+                <li><a href="Reservas.php">Reservas</a></li>
+                <li><a href="Contato.php">Contato</a></li>
+                <li><a href="index.php" onclick="window.open('areaLogin.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Login</a></li>
                 <li><a href="areaRecepcao.php">Recepção</a></li>
-                <li><a href="../Acomodações.html">Acomodações</a></li>
-                <li><a href="../Reservas.html">Reservas</a></li>
-                <li><a href="../Contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -44,22 +45,30 @@ $recepcionista = new Recepcionista();
                 <h3>Área reservada para os Recepcionistas!</h3>
             </div>
             <div id="subTitulo">
-                <div id="Clientes"><a href="">Clientes</a></div>
-                <div id="Quartos"><a href="poolQuartos.php">Quartos</a></div>
+                <div id="Clientes"><a href='areaRecepcao.php?listaClientes'>Clientes</a></div>
+                <div id="Quartos"><a href='areaRecepcao.php?listaQuartos'>Quartos</a></div>
+                <div id="poolQuartos"><a href="areaRecepcao.php?poolQuartos">poolQuartos</a></div>
             </div>
             <div id="areaEscolhas">
                 <div id="areaEscolhasClientes">
-                    <div id="addClientes"><a href="cadastroCliente.php">addClientes</a></div>
-                    <div id="editaClientes"><a href="editaCliente.php">editaClientes</a></div>
-                    <div id="listaClientes"><a href='areaRecepcao.php?listaClientes'>listaClientes</a></div>
-                <form action="main.php" method="post">
-                    <input type="submit" class="botoesRecepcao" name="excluiClientes" id="excluiClientes" value="Excluir Clientes">
+                    <form action="Recepcionista.php" method="post">
+                        <div id="addClientes"><a href="cadastroCliente.php">addClientes</a></div>
+                        <div id="editaClientes"><a href="editaCliente.php">editaClientes</a></div>
+                        <input type="submit" class="botoesAreaRecepcao" name="excluiClientes" id="excluiClientes" value="Excluir Clientes">
+                        <div id="check-In"><a href="#" onclick="window.open('check-In.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Check-In</a></div>
                 </div>
                 <div id="areaEscolhasQuartos">
                     <div id="addQuartos"><a href="cadastroQuarto.php">addQuartos</a></div>
                     <div id="editaQuartos"><a href="editaQuarto.php">editaQuartos</a></div>
-                    <div id="listaQuartos"><a href='areaRecepcao.php?listaQuartos'>listaQuartos</a></div>
-                    <input type="submit" class="botoesRecepcao" name="excluiQuartos" id="excluiQuartos" value="Excluir Quartos">
+                    <input type="submit" class="botoesAreaRecepcao" name="excluiQuartos" id="excluiQuartos" value="Excluir Quartos">
+                    <div id="check-Out"><a href='areaRecepcao.php?listaClientes' onclick="window.open('check-Out.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Check-Out</a></div>
+                </div>
+                <div id="poolArea">
+                    <?php
+                    if (isset($_GET["poolQuartos"])) {
+                        $recepcionista->listaQuartosPool();
+                    }
+                    ?>
                 </div>
                 <div id="areaResposta">
                     <table id="resposta">
@@ -71,19 +80,18 @@ $recepcionista = new Recepcionista();
                         if (isset($_GET["listaQuartos"])) {
                             $recepcionista->listaQuartos();
                         }
+
                         ?>
                     </table>
                 </div>
                 </form>
-
-
             </div>
     </section>
-    <footer>
-        <p><a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a>
-        </p></br>
-    </footer>
-</div>
+</main>
+<footer>
+    <p><a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a>
+    </p></br>
+</footer>
 
 </body>
 </html>

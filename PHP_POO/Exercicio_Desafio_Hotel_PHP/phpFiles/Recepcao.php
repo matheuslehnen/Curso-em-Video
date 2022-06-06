@@ -11,13 +11,11 @@ interface Recepcao
 
   //---------------------------------------------- QUARTOS --------------------------------------------------------//
 
-    public function cadastraQuarto($localizacao, $fumante, $valorDiaria, $capacidade, $situacao);
+    public function cadastraQuarto($localizacao, $fumante, $valorDiaria, $capacidade);
     public function editaQuarto($IDQuarto, $localizacao, $fumante, $valorDiaria, $capacidade, $situacao);
     public function listaQuartos();
     public function listaQuartosPool();
     public function excluiQuartos($IDQuarto);
-    public function listaQuartosDisponiveis();
-    public function listaQuartosOcupados();
 
   //----------------------------------------------- VALIDAÇÕES ----------------------------------------------------//
 
@@ -27,9 +25,9 @@ interface Recepcao
 
   //------------------------------------- FUNCOES CHECK-IN E CHECK-OUT --------------------------------------------//
 
-    public function fazerCheckIn($id, $IDQuarto, $diasHospedado);
-    public function fazerCheckOut($id, $IDQuarto);
-    public function calculaTotal($IDQuarto, $diasHospedado);
+    public function fazerCheckIn($cpf, $totalDiarias, $IDQuarto);
+    public function fazerCheckOut($cpf, $IDQuarto);
+    public function calculaTotal($IDQuarto, $totalDiarias);
 
 
 }

@@ -24,19 +24,18 @@ input#fValorDiaria {
     width: 90px;
 }
 
-input.fQuartoFumante{
-    margin-left: 15px;
+input.fFuma{
+    margin-left: 5px;
+}
+label[for="fumante"]{
+    margin-left: 5px;
+}
+label[for="Nao-fumante"]{
+    margin-left: 5px;
 }
 
-label[for="fQuartoFumante"]{
-    margin-left: 75px;
-}
-label[for="fQuartoNao-fumante"]{
-    margin-left: 75px;
-}
 input#fCapacidade{
     width: 40px;
-
 }
 select#fSituacao{
     font-size: 15px;
@@ -46,13 +45,3 @@ select#fSituacao{
     width: 120px;
 }
 
-#botaoCadastroQuarto{
-    margin-left: 150px;
-    padding: 15px;
-    background-color: #00A19C;
-}
-
-#botaoCadastroQuarto:hover{
-    background-color: #80142B;
-    transition: 1s;
-}
