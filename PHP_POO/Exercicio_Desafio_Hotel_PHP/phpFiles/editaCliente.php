@@ -20,14 +20,15 @@ $connection = $recepcionista->connection();
 <main>
     <header>
         <div id="logo"><img src="../img/logoTheGallery.jpg" alt=""></div>
-        <h1><a href="index.php">The Gallery Hostel</a></h1>
+        <h1><a href="../htmlFiles/index.html">The Gallery Hostel</a></h1>
         <nav class="menu">
-            <ul><h1>Menu Principal</h1>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="Acomodações.php">Acomodações</a></li>
-                <li><a href="Reservas.php">Reservas</a></li>
-                <li><a href="Contato.php">Contato</a></li>
-                <li><a href="index.php" onclick="window.open('areaLogin.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Login</a></li>
+            <ul>
+                <li id="Menu_Principal_NONE">Menu Principal</li>
+                <li><a href="../htmlFiles/index.html">Home</a></li>
+                <li><a href="../htmlFiles/Acomodações.html">Acomodações</a></li>
+                <li><a href="../htmlFiles/Reservas.html">Reservas</a></li>
+                <li><a href="../htmlFiles/Contato.html">Contato</a></li>
+                <li><a href="../htmlFiles/index.html" onclick="window.open('areaLogin.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Login</a></li>
                 <li><a href="areaRecepcao.php">Recepção</a></li>
             </ul>
         </nav>
@@ -108,8 +109,7 @@ $connection = $recepcionista->connection();
     </section>
 </main>
     <footer>
-        <a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a> <br>
+        <a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a>
     </footer>
-
 </body>
 </html>

@@ -1,26 +1,29 @@
 <?php
 
-require_once 'Hotel.php';
-
-class Quarto extends Hotel
+class Quarto
 {
     private $IDQuarto;
+    private $localizacao;
     private $fumante;
     private $valorDiaria;
+    private $capacidade;
     private $situacao;
     private $ocupadoPor;
 
 
     public function __construct($IDQuarto, $localizacao, $fumante, $valorDiaria, $capacidade, $situacao)
     {
-        parent::__construct($localizacao, $capacidade);
+
+
         $this->IDQuarto = $IDQuarto;
+        $this->localizacao = $localizacao;
         if($fumante){
             $this->fumante = 'Permitido';
         } else {
             $this->fumante = 'Proibido';
         }
         $this->valorDiaria = $valorDiaria;
+        $this->capacidade = $capacidade;
         if($situacao){
             $this->situacao = 'Ocupado';
         } else {
@@ -39,6 +42,17 @@ class Quarto extends Hotel
     public function setIDQuarto($IDQuarto)
     {
         $this->IDQuarto = $IDQuarto;
+    }
+
+    public function getLocalizacao()
+    {
+        return $this->localizacao;
+    }
+
+
+    public function setLocalizacao($localizacao)
+    {
+        $this->localizacao = $localizacao;
     }
 
 
@@ -64,6 +78,18 @@ class Quarto extends Hotel
     public function setValorDiaria($valorDiaria)
     {
         $this->valorDiaria = $valorDiaria;
+    }
+
+
+    public function getCapacidade()
+    {
+        return $this->capacidade;
+    }
+
+
+    public function setCapacidade($capacidade)
+    {
+        $this->capacidade = $capacidade;
     }
 
 

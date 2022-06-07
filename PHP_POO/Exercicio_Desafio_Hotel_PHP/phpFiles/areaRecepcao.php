@@ -4,9 +4,9 @@ $recepcionista = new Recepcionista();
 $connection = $recepcionista->connection();
 
 if ((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true)) {
-    header('location:index.php');
+    header('location:../htmlFiles/index.html');
 }
-//$logado = $_SESSION['login'];
+$logado = $_SESSION['login'];
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -26,14 +26,15 @@ if ((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tr
         <?php
         echo "<div id='welcome' <span>Bem vindo " . $_SESSION['login'] . "</span></div>";
         ?>
-        <h1><a href="index.php">The Gallery Hostel</a></h1>
+        <h1><a href="../htmlFiles/index.html">The Gallery Hostel</a></h1>
         <nav class="menu">
-            <ul><h1>Menu Principal</h1>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="Acomodações.php">Acomodações</a></li>
-                <li><a href="Reservas.php">Reservas</a></li>
-                <li><a href="Contato.php">Contato</a></li>
-                <li><a href="index.php" onclick="window.open('areaLogin.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Login</a></li>
+            <ul>
+                <li id="Menu_Principal_NONE">Menu Principal</li>
+                <li><a href="../htmlFiles/index.html">Home</a></li>
+                <li><a href="../htmlFiles/Acomodações.html">Acomodações</a></li>
+                <li><a href="../htmlFiles/Reservas.html">Reservas</a></li>
+                <li><a href="../htmlFiles/Contato.html">Contato</a></li>
+                <li><a href="../htmlFiles/index.html" onclick="window.open('../htmlFiles/areaLogin.html', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Login</a></li>
                 <li><a href="areaRecepcao.php">Recepção</a></li>
             </ul>
         </nav>
@@ -52,13 +53,13 @@ if ((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tr
             <div id="areaEscolhas">
                 <div id="areaEscolhasClientes">
                     <form action="Recepcionista.php" method="post">
-                        <div id="addClientes"><a href="cadastroCliente.php">addClientes</a></div>
+                        <div id="addClientes"><a href="../htmlFiles/cadastroCliente.html">addClientes</a></div>
                         <div id="editaClientes"><a href="editaCliente.php">editaClientes</a></div>
                         <input type="submit" class="botoesAreaRecepcao" name="excluiClientes" id="excluiClientes" value="Excluir Clientes">
                         <div id="check-In"><a href="#" onclick="window.open('check-In.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Check-In</a></div>
                 </div>
                 <div id="areaEscolhasQuartos">
-                    <div id="addQuartos"><a href="cadastroQuarto.php">addQuartos</a></div>
+                    <div id="addQuartos"><a href="../htmlFiles/cadastroQuarto.html">addQuartos</a></div>
                     <div id="editaQuartos"><a href="editaQuarto.php">editaQuartos</a></div>
                     <input type="submit" class="botoesAreaRecepcao" name="excluiQuartos" id="excluiQuartos" value="Excluir Quartos">
                     <div id="check-Out"><a href='areaRecepcao.php?listaClientes' onclick="window.open('check-Out.php', 'Titulo da Janela', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO, RESISABLE=NO, SCROLLBARS=NO, TOP=140, LEFT=500, WIDTH=500, HEIGHT=500');">Check-Out</a></div>
@@ -76,21 +77,17 @@ if ((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == tr
                         if (isset($_GET["listaClientes"])) {
                             $recepcionista->listaClientes();
                         }
-
                         if (isset($_GET["listaQuartos"])) {
                             $recepcionista->listaQuartos();
                         }
-
                         ?>
                     </table>
                 </div>
-                </form>
             </div>
     </section>
 </main>
 <footer>
-    <p><a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a>
-    </p></br>
+    <a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a>
 </footer>
 
 </body>

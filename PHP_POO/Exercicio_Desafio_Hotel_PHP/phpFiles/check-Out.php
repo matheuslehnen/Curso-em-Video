@@ -17,7 +17,7 @@ $connection = $recepcionista->connection();
 <main>
     <header>
         <div id="logo"><img src="../img/logoTheGallery.jpg" alt=""></div>
-        <h1><a href="index.php">The Gallery Hostel</a></h1>
+        <h1><a href="../htmlFiles/index.html">The Gallery Hostel</a></h1>
     </header>
     <section id="corpo">
         <div id="fundo">
@@ -46,9 +46,8 @@ $connection = $recepcionista->connection();
     </section>
 </main>
     <footer>
-        <a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a> <br>
+        <a href="https://github.com/matheuslehnen" target="_blank">&copyCopyright 2022 - by Matheus Lehnen</a>
     </footer>
-
 </body>
 </html>
 

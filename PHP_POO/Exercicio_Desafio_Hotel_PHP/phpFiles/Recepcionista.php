@@ -1,8 +1,6 @@
 <?php
 
 require_once 'Cliente.php';
-require_once 'Hotel.php';
-require_once 'Pessoa.php';
 require_once 'Quarto.php';
 require_once 'Recepcao.php';
 require_once 'Recepcionista.php';
@@ -76,9 +74,13 @@ class Recepcionista implements Recepcao
             echo "<td class='campos'>" . $valor['cidade'] . "</td>";
             echo "<td class='campos'>" . $valor['UF'] . "</td>";
             echo "<td class='campos'>" . $valor['fumante'] . "</td>";
-            echo "<td class='campos'>" . $valor['quartoHospedado'] . "</td>";
-            echo "<td class='campos'>" . $valor['totalDiarias'] . "</td>";
-            echo "<td class='campos'>R$ " . $valor['totalPagar'] . "</td></tr></tbody>";
+            if($valor['quartoHospedado'] == 0){
+                echo "<td class='campos'> </td>";
+            } else {
+                echo "<td class='campos'>" . $valor['quartoHospedado'] . "</td>";
+                echo "<td class='campos'>" . $valor['totalDiarias'] . "</td>";
+                echo "<td class='campos'>R$ " . $valor['totalPagar'] . "</td></tr></tbody>";
+            }
         }
     }
 
@@ -95,7 +97,7 @@ class Recepcionista implements Recepcao
     public function cadastraQuarto($localizacao, $fumante, $valorDiaria, $capacidade)
     {
         $connection = $this->connection();
-        $sql = mysqli_query($connection, "insert into quartos values (default, '$localizacao', '$fumante', '$valorDiaria', '$capacidade',default ,default, default)");
+        $sql = mysqli_query($connection, "insert into quartos values (default, '$localizacao', '$fumante', '$valorDiaria', '$capacidade',default ,default)");
     }
 
 
@@ -117,8 +119,8 @@ class Recepcionista implements Recepcao
         echo "<th class='campos'>Valor da Diária</th>";
         echo "<th class='campos'>Capacidade</th>";
         echo "<th class='campos'>Situação</th>";
-        echo "<th class='campos'>Hospede</th>";
-        echo "<th class='campos'>ID Hospede</th></tr></thead>";
+        echo "<th class='campos'>Hospede</th></tr></thead>";
+
 
 
         while ($valor = mysqli_fetch_assoc($sql)) {
@@ -128,9 +130,12 @@ class Recepcionista implements Recepcao
             echo "<td class='campos'>R$ " . $valor['valorDiaria'] . "</td>";
             echo "<td class='campos'>" . $valor['capacidade'] . "</td>";
             echo "<td class='campos'>" . $valor['situacao'] . "</td>";
-            echo "<td class='campos'>" . $valor['nomeHospede'] . "</td>";
-            echo "<td class='campos'>" . $valor['idHospede'] . "</td></tr></tbody>";
-
+            if ($valor['nomeHospede'] != '-') {
+                echo "<td class='campos'>" . $valor['nomeHospede'] . "</td>";
+            }
+            else {
+                    echo "<td class='campos'> </td>";
+                }
         }
     }
 
@@ -163,11 +168,6 @@ class Recepcionista implements Recepcao
     public function fazerCheckIn($cpf, $totalDiarias, $IDQuarto)
     {
         $connection = $this->connection();
-
-        $sql = mysqli_query($connection, "select id from hospedes where cpf = $cpf");
-        while ($valor = mysqli_fetch_assoc($sql)) {
-            $IDHospede = $valor['id'];
-        }
 
         $sql = mysqli_query($connection, "select nome from hospedes where cpf = $cpf");
         while ($valor = mysqli_fetch_assoc($sql)) {
@@ -203,20 +203,20 @@ class Recepcionista implements Recepcao
 
         if ($quartoHospedado == 0 && $situacao == 'Vago') {
             if ($clienteFumante == 'Fumante' && $quartoFumante == 'Fumante') {
-                $sql = mysqli_query($connection, "update quartos set situacao = 'Ocupado', idHospede = '$IDHospede', nomeHospede = '$nome' where id  = $IDQuarto");
+                $sql = mysqli_query($connection, "update quartos set situacao = 'Ocupado', nomeHospede = '$nome' where id  = $IDQuarto");
                 $sql = mysqli_query($connection, "update hospedes set quartoHospedado = '$IDQuarto', totalDiarias = '$totalDiarias', totalPagar = '$totalPagar' where cpf = $cpf");
                 echo "<script>alert(`Check-in realizado com sucesso!`);</script>";
                 echo "<script>window.close();</script>";
                 //header('Location: ' . 'areaRecepcao.php?listaClientes');
             } elseif ($clienteFumante != 'Fumante' && $quartoFumante == 'Fumante') {
-                $sql = mysqli_query($connection, "update quartos set situacao = 'Ocupado', idHospede = '$IDHospede', nomeHospede = '$nome' where id  = $IDQuarto");
+                $sql = mysqli_query($connection, "update quartos set situacao = 'Ocupado', nomeHospede = '$nome' where id  = $IDQuarto");
                 $sql = mysqli_query($connection, "update hospedes set quartoHospedado = '$IDQuarto', totalDiarias = $totalDiarias, totalPagar = $totalPagar where cpf = $cpf");
                 echo "<script>alert(`Check-in realizado com sucesso!`);</script>";
                 echo "<script>window.close();</script>";
             } elseif ($clienteFumante == 'Fumante' && $quartoFumante != 'Fumante') {
                 echo "<script>alert(`O cliente é fumante. Escolha uma acomodação para fumantes!`);</script>";
             } elseif ($clienteFumante == 'Não-Fumante' && $quartoFumante == 'Não-Fumante') {
-                $sql = mysqli_query($connection, "update quartos set situacao = 'Ocupado', idHospede = '$IDHospede', nomeHospede = '$nome' where id  = $IDQuarto");
+                $sql = mysqli_query($connection, "update quartos set situacao = 'Ocupado', nomeHospede = '$nome' where id  = $IDQuarto");
                 $sql = mysqli_query($connection, "update hospedes set quartoHospedado = '$IDQuarto', totalDiarias = $totalDiarias, totalPagar = $totalPagar where cpf = $cpf");
                 echo "<script>alert(`Check-in realizado com sucesso!`);</script>";
                 echo "<script>window.close();</script>";
@@ -249,8 +249,8 @@ class Recepcionista implements Recepcao
         }
 
         if ($quartoHospedado == $IDQuarto) {
-            $sql = mysqli_query($connection, "update quartos set situacao = 'Vago', idHospede = 0, nomeHospede = '-' where id  = $IDQuarto");
-            $sql = mysqli_query($connection, "update hospedes set quartoHospedado = '0', totalDiarias = '0', totalPagar = '0' where cpf = $cpf");
+            $sql = mysqli_query($connection, "update quartos set situacao = 'Vago', nomeHospede = '-' where id  = $IDQuarto");
+            $sql = mysqli_query($connection, "update hospedes set quartoHospedado = default, totalDiarias = '0', totalPagar = '0' where cpf = $cpf");
             echo "<script>alert(`Check-out realizado com sucesso!`);</script>";
             echo "<script>window.close();</script>";
         } else {
@@ -371,7 +371,7 @@ class Recepcionista implements Recepcao
         } else {
             unset ($_SESSION['login']);
             unset ($_SESSION['senha']);
-            header('location:areaLogin.php');
+            header('location:areaLogin.html');
             echo "<script>window.close();</script>";
         }
     }

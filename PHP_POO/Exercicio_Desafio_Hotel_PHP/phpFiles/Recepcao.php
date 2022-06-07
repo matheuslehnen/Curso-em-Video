@@ -29,5 +29,4 @@ interface Recepcao
     public function fazerCheckOut($cpf, $IDQuarto);
     public function calculaTotal($IDQuarto, $totalDiarias);
 
-
 }
