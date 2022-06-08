@@ -199,6 +199,7 @@ class Recepcionista implements Recepcao
             $quartoFumante = $valor['fumante'];
         }
 
+
         $totalPagar = $this->calculaTotal($IDQuarto, $totalDiarias);
 
         if ($quartoHospedado == 0 && $situacao == 'Vago') {

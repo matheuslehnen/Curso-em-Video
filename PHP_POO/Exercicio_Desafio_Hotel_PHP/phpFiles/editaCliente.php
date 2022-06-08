@@ -94,7 +94,6 @@ $connection = $recepcionista->connection();
                         <option value="TO">Tocantins</option>
                         <option value="DF">Distrito Federal</option>
                     </select><br>
-                    <label for="fDiarias">Quantidade de diárias: <input type="number" id="fDiarias" name="fDiarias" placeholder="Dias hospedado"></label><br>
                     <fieldset class="fieldsetinterno">
                         <legend>Fumante:</legend>
                         <label for="fumante">Sim<input type="radio" id="fumante" name="fFuma" class="fFuma"
